@@ -1,7 +1,6 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import {Container,TextField,Paper,Typography,Grid,Button,CircularProgress} from '@material-ui/core/';
 import styles from './Styles'
-import * as API from '../../API/'
 import {useHistory} from 'react-router-dom'
 
 const InputForm = () => {
@@ -10,26 +9,9 @@ const InputForm = () => {
     const history = useHistory()
 
     const [id, setId] = useState("")
-    const [randomId, setRandomId] = useState("")
-    const [isLoading, setIsLoading] = useState("")
 
-    useEffect(() => {
-
-    }, []);
-
-    const getRandomData = () =>{
-        return API.getRandomData().then(({data})=>{
-            const randomNo = Math.floor(Math.random() * (19))
-            return data.near_earth_objects[randomNo].id
-        })
-    }
-    
     const handleRandom = async () => {
-        setIsLoading(true)
-        // const id = await getRandomData()
-        // console.log(id)
         history.push(`/random`)
-        setIsLoading(false)
     }
 
     const handleClick = async () => {
@@ -68,7 +50,7 @@ const InputForm = () => {
                             className={classes.submit}
                             onClick={handleRandom}
                         >
-                            {isLoading ? <CircularProgress /> : "Random Asteroid"}
+                            Random Asteroid
                         </Button>
                     </Grid>
             </Paper>

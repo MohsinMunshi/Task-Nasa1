@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {useParams,useLocation,useHistory} from 'react-router-dom'
+import {Container,Paper,Typography,Grid,Button,CircularProgress} from '@material-ui/core/';
+
 import * as API from "../../API";
 import styles from "./Styles";
-import {Container,Paper,Typography,Grid,Button,CircularProgress} from '@material-ui/core/';
-const Details = () => {
-    const classes = styles()
 
+const Details = () => {
+
+    const classes = styles()
     const {id} = useParams()
     const location = useLocation()
     const history = useHistory()
