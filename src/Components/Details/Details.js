@@ -20,16 +20,17 @@ const Details = () => {
         if(path === "random"){
             getRandomData()
         }else{
-            AsteroidData()
+            getAsteroidData()
         }
     }, []);
 
-    const AsteroidData = () =>{
+    const getAsteroidData = () =>{
         API.getAsteroidData(id).then(({data})=>{
             setAsteroidData(data)
             setIsLoading(false)
         })
     }
+
     const getRandomData = () =>{
         API.getRandomData().then(({data})=>{
             const randomNo = Math.floor(Math.random() * (19))

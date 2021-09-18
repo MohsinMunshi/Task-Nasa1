@@ -5,16 +5,14 @@ import {useHistory} from 'react-router-dom'
 
 const InputForm = () => {
     const classes = styles()
-
     const history = useHistory()
-
     const [id, setId] = useState("")
 
-    const handleRandom = async () => {
+    const handleRandom = () => {
         history.push(`/random`)
     }
 
-    const handleClick = async () => {
+    const handleClick = () => {
         history.push(`/details/${id}`)
     }
     const handleChange = (e) => {
